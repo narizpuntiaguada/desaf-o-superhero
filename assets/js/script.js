@@ -2,7 +2,8 @@ function cargarGrafico(datos = [], name) {
     const chart = new CanvasJS.Chart("chartContainer", {
         animationEnabled: true,
         title: {
-            text: `Estadísticas de poder para ${name}`
+            text: `Estadísticas de poder para ${name}`,
+            fontFamily: "Tektur"
         },
         data: [{
             type: "pie",
@@ -37,18 +38,17 @@ function obtenerData(id) {
         .fail(function () {
             alert("error");
         })
-
 }
-$("form").on("submit", function (event) {
-    /* if ($("input").first().val() === "correct") {
-        $("span").text("Validated...").show();
-        return;
-    }
 
-    $("span").text("Not valid!").show().fadeOut(1000); */
+$("form").on("submit", function (event) {
+
     event.preventDefault();
     const id = $("#formSuperhero").val()
-    obtenerData(id);
+    if(isNaN(id) || id<1 || id>732){
+        alert("Ingresar un número entre 1 y 732")
+    }
+    else{
+    obtenerData(id);}
 
 });
 
@@ -57,7 +57,7 @@ function cargarCard(superhero) {
         `<div class="card mb-3" style="max-width: 540px;">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="${superhero.image.url}" class="img-fluid rounded-start" alt="...">
+            <img src="${superhero.image.url}" class="img-fluid rounded-start h-100 object-fit-cover"  alt="...">
           </div>
           <div class="col-md-8">
             <div class="card-body">
