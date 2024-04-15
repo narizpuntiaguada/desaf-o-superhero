@@ -9,6 +9,9 @@
 
  .body{
     background-image: url(https://images.hdqwalls.com/wallpapers/justice-league-dc-comic-art-ei.jpg);
+background-repeat: no-repeat;
+background-size: cover;
+   
 color:greenyellow
 }
  .btn-class-name {
